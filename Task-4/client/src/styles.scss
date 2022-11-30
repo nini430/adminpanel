@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+@mixin mobile {
+  @media (max-width: 632px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+
+// .registration and login page
+
+.register,
+.login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(244, 243, 243);
+  .wrapper {
+    background: white;
+    width: 500px;
+    padding: 50px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+
+    h1 {
+      text-align: center;
+      color: #555;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .error {
+      font-size: 12px;
+      color: red;
+      margin-bottom: 0;
+    }
+
+    .passwordInput {
+      position: relative;
+
+      .icon {
+        position: absolute;
+        right: 1rem;
+        color: red;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 999;
+      }
+    }
+  }
+}
+
+// admin panel
+
+.admin {
+  width: 100vw;
+  height: 100vh;
+  background: #f1f2f3;
+
+  .wrapper {
+    padding: 50px;
+
+    .user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom:2rem;
+
+      @include mobile {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      @include tablet {
+        margin-bottom: 1rem;
+      }
+
+      .dropdown {
+        height: 100%;
+
+        .toggle {
+          background: white;
+          color: #555;
+
+          &::after {
+            position: absolute;
+            content: "";
+            top: 50px;
+            right: 1rem;
+          }
+
+          .currentUser {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Table
+
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+td,th {
+  text-align:center;
+  vertical-align: middle;
+}
+
+.btnGroup {
+  align-self: flex-end;
+  margin-bottom: 10px;
+
+  @include mobile {
+    align-self: center;
+  }
+
+  button {
+    border-right: 1px solid lightgray;
+    &:first-child:hover {
+      background-color: #bb2d3b;
+    }
+    &:hover {
+      border-right: 1px solid lightgray;
+      background: rgb(230, 226, 226);
+    }
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: limegreen;
+}
